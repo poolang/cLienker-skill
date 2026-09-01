@@ -1,9 +1,6 @@
 ---
 name: lienfi-lookup
-description: Use when the user asks about tax lien investments, LienFi
-listings, property tax liens in Florida or Texas, LTV, redemption rates,
-lien yields, or wants to find and evaluate tax lien investment
-opportunities tokenized as NFTs on Base.
+description: Use when the user asks about tax lien investments, LienFi listings, property tax liens in Florida or Texas, LTV, redemption rates, lien yields, or wants to find and evaluate tax lien investment opportunities tokenized as NFTs on Base.
 ---
 
 # cLienker — LienFi Tax Lien Research
