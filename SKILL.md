@@ -19,3 +19,21 @@ investment opportunities.
 - If data isn't available (title status, occupancy certainty,
   environmental risk), say so plainly — never guess.
 - This skill does not execute purchases. Research and analysis only.
+
+## Highest-risk mistakes to avoid
+
+- NEVER quote calculated.apy, dynamic_blended_apy, or total_yield_to_maturity
+  as "the return" — these are gross (before LienFi's fee). Only
+  calculated.current_redemptive_value minus calculated.current_listing_price,
+  properly caveated as pre-fee, or figures from get_terms.sh, are safe to
+  present as return figures.
+- A $0 or low gross_gain on a "par" deal_type is NORMAL, not a bad sign —
+  see references/evaluation-guide.md.
+- Never compare a Florida lien and Texas lien on yield/rate alone — they
+  are different legal instruments. See references/jurisdiction-mechanics.md
+  before making any FL-vs-TX comparison.
+- county must match exactly in search_liens.sh — call get_facets.sh first
+  if a location was named by the user.
+- Always use calculated.current_redemptive_value and
+  calculated.current_listing_price, never the raw redemptive_value,
+  accrued_interest, or listing_price fields — those are stale snapshots.
