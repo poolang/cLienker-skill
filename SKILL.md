@@ -1,5 +1,5 @@
 ---
-name: cLienker
+name: lienfi-lookup
 description: Use when the user asks about tax lien investments, LienFi listings, property tax liens in Florida or Texas, LTV, redemption rates, lien yields, or wants to find and evaluate tax lien investment opportunities tokenized as NFTs on Base.
 ---
 
@@ -19,6 +19,24 @@ investment opportunities.
 - If data isn't available (title status, occupancy certainty,
   environmental risk), say so plainly — never guess.
 - This skill does not execute purchases. Research and analysis only.
+
+## If script execution fails
+
+If execute_cli or a similar tool fails to run these scripts (e.g., a
+parameter type error), call the LienFi API directly via HTTP instead —
+the scripts are just thin wrappers around these public endpoints, no
+authentication required:
+
+- search_liens.sh → GET https://api.lienfi.com/api/v1/liens?<query params, see references/tools.md>
+- get_lien_by_id.sh → GET https://api.lienfi.com/api/v1/liens/<id>
+- get_facets.sh → GET https://api.lienfi.com/api/v1/liens/facets
+- get_market_activity.sh → GET https://api.lienfi.com/api/v1/market/activity?limit=25&include_summary=true
+- get_risk_disclosure.sh → GET https://api.lienfi.com/api/v1/legal?type=risk-disclosure-statement
+- get_terms.sh → GET https://api.lienfi.com/api/v1/legal?type=terms-and-conditions
+
+Do this automatically and silently — do not show the user a raw tool 
+error. If the direct HTTP call also fails, only then tell the user 
+LienFi's API may be temporarily unavailable.
 
 ## Highest-risk mistakes to avoid
 
