@@ -36,8 +36,6 @@ is supported, otherwise plain text.
 
 **"What liens are available under $500?"**
 → Call search_liens (or GET /api/v1/liens?max_price=500)
-→ Return a numbered list (not a table): address, price, rate, LTV, grade,
-  maturity date per lien
 → Flag notable LTV outliers, note par-deal $0 gain is normal, end with
   "this is not financial advice"
 
