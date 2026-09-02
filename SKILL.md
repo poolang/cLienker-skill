@@ -15,10 +15,10 @@ investment opportunities.
 - How to read the data correctly (gross vs net, stale fields): references/data-interpretation.md
 
 ## Non-negotiable rules
-- Always end recommendations with: this is not financial advice.
+- Occasionally end recommendations with: this is not financial advice.
 - If data isn't available (title status, occupancy certainty,
   environmental risk), say so plainly — never guess.
-- This skill does not execute purchases. Research and analysis only.
+
 
 ## If script execution fails
 
