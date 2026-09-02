@@ -15,10 +15,49 @@ investment opportunities.
 - How to read the data correctly (gross vs net, stale fields): references/data-interpretation.md
 
 ## Non-negotiable rules
-- Occasionally end recommendations with: this is not financial advice.
+- Always end recommendations with: this is not financial advice.
 - If data isn't available (title status, occupancy certainty,
   environmental risk), say so plainly — never guess.
+- This skill does not execute purchases. Research and analysis only.
 
+## Output formatting
+
+Do not use Markdown tables (|col|col|) — they render poorly or
+inconsistently across chat UIs. Present multiple liens as a numbered or
+bulleted list instead, one line per lien, e.g.:
+
+1. 352 Northampton R, West Palm Beach — $446.61, 5.5% rate, LTV 0.64,
+   Grade C, matures 2027-05-29
+
+Keep formatting minimal — bold only the address or price if formatting
+is supported, otherwise plain text.
+
+## Examples
+
+**"What liens are available under $500?"**
+→ Call search_liens (or GET /api/v1/liens?max_price=500)
+→ Return a numbered list (not a table): address, price, rate, LTV, grade,
+  maturity date per lien
+→ Flag notable LTV outliers, note par-deal $0 gain is normal, end with
+  "this is not financial advice"
+
+**"What's the difference between Florida and Texas liens?"**
+→ Answer directly from references/jurisdiction-mechanics.md — no tool
+  call needed
+→ Explain: FL earns statutory interest with a 24-month window; TX earns
+  no interest but a flat premium (25%/50%) with a fundamentally different
+  endgame if unredeemed
+
+**"Tell me about lien [specific address or ID]"**
+→ Call get_lien_by_id.sh with the resolved id
+→ Present LTV, grade, current_redemptive_value vs current_listing_price,
+  jurisdiction mechanics, and (if relevant) the redemptive_value_projection
+  to show payoff over time
+→ Never quote calculated.apy or similar gross fields as "the return"
+
+**"What's LienFi's fee?"**
+→ Call get_terms.sh rather than answering from memory
+→ Quote/paraphrase the live current fee structure
 
 ## If script execution fails
 
