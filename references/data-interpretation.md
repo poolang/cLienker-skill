@@ -12,3 +12,9 @@
 - subsequent_taxes_payable: if true, flag that ADDITIONAL unpaid taxes
   could still accrue — a real, uncapped risk.
 - redemption_lapsed (true) means the redemption window has already passed.
+- ltv_ratio is already expressed as a PERCENTAGE (e.g., 1.71 means 1.71%, 
+  not 171% or a 1.71 ratio). All liens on this platform have historically 
+  shown very low LTVs (under ~5%) — do not describe an LTV above 1.0 as 
+  "exceeding" anything or as unsafe without checking the actual percentage 
+  value against a real threshold (e.g., 20%+ would be comparatively 
+  elevated for this platform).
